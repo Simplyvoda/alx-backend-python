@@ -11,3 +11,4 @@ def add(a: float, b: float) -> float:
     return: type float
     '''
     return a + b
+
