@@ -7,9 +7,9 @@ and returns their sum as a float
 from typing import List, Union
 
 
-def sum_mixed_list(mxd_list: List[Union[int, float]]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     '''
     This function returns the sum of a mixed type
     list
     '''
-    return float(sum(mxd_list))
+    return float(sum(mxd_lst))
