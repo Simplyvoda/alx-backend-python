@@ -12,4 +12,4 @@ def sum_mixed_list(mxd_list: List[Union[float, int]]) -> float:
     This function returns the sum of a mixed type
     list
     '''
-    return sum(mxd_list)
+    return float(sum(mxd_list))
