@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-This module contains defined 
+This module contains defined
 and annotated variables
 '''
 
