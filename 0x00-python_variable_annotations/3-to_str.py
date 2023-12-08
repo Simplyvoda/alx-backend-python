@@ -10,4 +10,4 @@ def to_str(n: float) -> str:
     This function returns the
     string representation of a float
     '''
-    return __str__(n)
+    return str(n)
