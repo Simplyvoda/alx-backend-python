@@ -9,11 +9,11 @@ import random
 
 
 async def wait_random(max_delay: int = 10) -> float:
-  '''
-  This function uses the random module
-  to get a random number, delays execution
-  by that number and then returns the number
-  '''
-  random_delay = random.uniform(0, max_delay)
-  await asyncio.sleep(random_delay)
-  return random_delay
+    '''
+    This function uses the random module
+    to get a random number, delays execution
+    by that number and then returns the number
+    '''
+    random_delay = random.uniform(0, max_delay)
+    await asyncio.sleep(random_delay)
+    return random_delay
