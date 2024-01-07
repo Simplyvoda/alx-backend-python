@@ -33,9 +33,8 @@ class TestAccessNestedMap(unittest.TestCase):
         '''
         This function tests that KeyError is raised
         '''
-        access_nested_map(nested_map, path)
-        with self.assertRaises(expected_exception, msg="Key not found"):
-            return expected_exception
+        with self.assertRaises(expected_exception):
+            access_nested_map(nested_map, path)
 
 
 if __name__ == "__main__":
