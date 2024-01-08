@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-Test module for utils.access_nested_map
+Test module for utils
 '''
 import unittest
 from unittest.mock import patch, Mock
@@ -103,7 +103,7 @@ class TestMemoize(unittest.TestCase):
         # within a class
         with patch.object(
           TestClass,
-          'a_method',
+          "a_method",
           return_value=lambda: 42) as mock_method:
             test_obj = TestClass()
 
