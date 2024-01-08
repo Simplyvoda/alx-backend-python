@@ -89,6 +89,9 @@ class TestMemoize(unittest.TestCase):
         and then tests the utils.memoize decorator
         '''
         class TestClass:
+            '''
+            Nested class
+            '''
             def a_method(self):
                 return 42
 
@@ -96,16 +99,19 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-
         # patch.object should be used when patching methods
         # within a class
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
-          test_obj = TestClass()
+        with patch.object(
+          TestClass,
+          'a_method',
+          return_value=lambda: 42) as mock_method:
+            test_obj = TestClass()
 
-          mock_method.assert_called_once()
+            mock_method.assert_called_once()
 
-          self.assertEqual(test_obj.a_property(), 42)
-          self.assertEqual(test_obj.a_property(), 42)
+            self.assertEqual(test_obj.a_property(), 42)
+            self.assertEqual(test_obj.a_property(), 42)
+
 
 if __name__ == "__main__":
     unittest.main()
