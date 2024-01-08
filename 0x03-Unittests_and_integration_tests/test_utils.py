@@ -23,7 +23,7 @@ class TestAccessNestedMap(unittest.TestCase):
         nested_map: Dict,
         path: Tuple[str],
         expected_result: Union[Dict, int]
-        ) -> None:
+          ) -> None:
         '''
         This functions tests that the actual result
         and expected result are same
@@ -40,7 +40,7 @@ class TestAccessNestedMap(unittest.TestCase):
         nested_map: Dict,
         path: Tuple[str],
         expected_exception
-        ) -> None:
+          ) -> None:
         '''
         This function tests that KeyError is raised
         '''
@@ -60,13 +60,19 @@ class TestGetJson(unittest.TestCase):
         self,
         test_url: str,
         test_payload: Dict
-        ) -> None:
+          ) -> None:
         '''
         Function to test that utils.get_json
         returns expected result
         '''
-        attrs = {'json.return_value': test_payload}
-        with patch("requests.get", return_value=Mock(**attrs)) as mock_get:
+        with patch("requests.get") as mock_get:
+            mock_res = Mock()  # setting response to be mock object
+            # setting return value of mock res to be test_payload
+            mock_res.json = Mock(return_value=test_payload)
+            # setting return value of mock_get
+            # mock_get replaces "request.get"
+            mock_get.return_value = mock_res
+
             result = get_json(test_url)
 
             mock_get.assert_called_once_with(test_url)
