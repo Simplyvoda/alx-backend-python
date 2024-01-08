@@ -3,7 +3,7 @@
 Test module for client
 '''
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, MagicMock
 from parameterized import parameterized
 from client import GithubOrgClient
 from typing import Dict
@@ -22,7 +22,7 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch("requests.get")
     def test_org(
          self,
-         mock_get,
+         mock_get: Mock,
          test_org: str,
          test_payload: Dict) -> None:
         '''
